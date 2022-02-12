@@ -39,6 +39,16 @@ const inserirItem = (evento) => {
     }
 }
 
+const enviarItem = () => {
+    const textElement = document.getElementById('newItem')
+    const texto = textElement.value;
+    const banco = getBanco();
+    banco.push ({'tarefa': texto, 'status': ''});
+    setBanco(banco);
+    atualizarTela();
+    textElement.value = '';
+}
+
 const removerItem = (indice) => {
     const banco = getBanco();
     banco.splice (indice, 1);
